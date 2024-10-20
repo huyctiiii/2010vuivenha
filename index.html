@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lời chúc 20/10</title>
+    <style>
+        body {
+            background-color: pink; /* Nền màu hồng */
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: white;
+            font-size: 3rem;
+            margin-top: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        img {
+            margin-top: 30px;
+            max-width: 80%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-ok, .btn-next {
+            margin-top: 20px;
+            padding: 15px;
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            color: black;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .btn-ok span, .btn-next span {
+            position: absolute;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .btn-ok:hover, .btn-next:hover {
+            background-color: lightgray;
+            transform: scale(1.1);
+        }
+
+        #question-container, #next-container {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .choice-btn {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .choice-btn:hover {
+            background-color: lightgray;
+        }
+
+        #result, #result-second {
+            margin-top: 10px;
+            font-size: 2rem;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <h1>CÁC BẠN NAM 10C1 CHÚC CÁC BẠN NỮ 20/10 THẬT VUI VẺ</h1>
+    
+    <div id="result">ĐÚNG RỒI LMH RẤT ĐẸP TRAI 😏</div>
+
+    <img id="image" src="2010.jpg" alt="Lời chúc 20/10 vui vẻ">
+
+    <button class="btn-ok" id="ok-button" onclick="showQuestion()">
+        <span>OK</span>
+    </button>
+
+    <div id="question-container">
+        <p style="font-size: 1.5rem;">Lương Minh Huy có đẹp trai không?</p>
+        <button class="choice-btn" onclick="showNext()">Có</button>
+        <button class="choice-btn" onclick="showNext()">Kó</button>
+    </div>
+
+    <div id="next-container">
+        <p style="font-size: 1.5rem;">Em có muốn làm ghệ LMH không?</p>
+        <button class="choice-btn" onclick="showFinalResult('1')">Wow anh đẹp trai quáaa em muốn</button>
+        <button class="choice-btn" onclick="showFinalResult('2')">Wow oppa dthg quá babi muốnnn</button>
+    </div>
+
+    <div id="result-second">Chúc mừng em đã thành ghệ thứ 100 của LMH ❤️</div>
+
+    <!-- Thêm phần âm thanh -->
+    <audio id="audio" src="2010.mp3" preload="auto"></audio>
+
+    <script>
+        const audio = document.getElementById('audio');
+
+        function showQuestion() {
+            audio.play(); // Phát âm thanh khi câu hỏi xuất hiện
+            document.getElementById('question-container').style.display = 'block';
+            document.getElementById('ok-button').style.display = 'none'; // Ẩn nút OK
+            document.getElementById('image').style.display = 'none'; // Ẩn hình ảnh
+        }
+
+        function showNext() {
+            const result = document.getElementById('result');
+            result.style.opacity = 0; // Ẩn kết quả đầu tiên
+            document.getElementById('next-container').style.display = 'block'; // Hiển thị câu hỏi tiếp theo
+            result.style.display = 'none'; // Ẩn dòng chữ đầu tiên
+        }
+
+        function showFinalResult(choice) {
+            const resultSecond = document.getElementById('result-second');
+            resultSecond.style.opacity = 1; // Hiển thị kết quả cuối cùng
+            resultSecond.style.display = 'block'; // Đảm bảo nó hiển thị
+            document.getElementById('next-container').style.display = 'none'; // Ẩn câu hỏi tiếp theo
+        }
+    </script>
+</body>
+</html>
